@@ -4,6 +4,9 @@ import router from './router'
 import ElementUI from 'element-ui'
 import './styles/index.less'
 import 'element-ui/lib/theme-chalk/index.css'
+import axios from 'axios'
+axios.defaults.baseURL = ' http://ttapi.research.itcast.cn/mp/' // 设置axios的常态地址
+Vue.prototype.$axios = axios // 将axios共享给素有的实例使用
 Vue.use(ElementUI)
 Vue.config.productionTip = false // 引入样式
 
