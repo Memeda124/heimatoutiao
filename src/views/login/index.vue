@@ -68,9 +68,27 @@ export default {
   },
   methods: {
     login () {
-      this.$refs.formObj.validate()
+      this.$refs.formObj.validate((isOK) => {
+        if (isOK) {
+          this.$axios({
+            // 如果为true 继续下一步 调用接口 登录
+            url: '/authorizations',
+            method: 'post',
+            data: this.loginForm
+          }).then(result => {
+            // 放到前端的缓存中
+            window.localStorage.setItem('user-token', result.data.data.token)
+            // 编程式导航
+            this.$router.push('/home') // 登录成功 跳转到home页
+          }).catch(() => {
+            this.$message({
+              message: '手机号或验证码错误',
+              type: 'warning'
+            })
+          })
+        }
+      })
     }
-
   }
 }
 </script>
