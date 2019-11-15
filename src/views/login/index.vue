@@ -79,7 +79,7 @@ export default {
             // 放到前端的缓存中
             window.localStorage.setItem('user-token', result.data.data.token)
             // 编程式导航
-            this.$router.push('/home') // 登录成功 跳转到home页
+            this.$router.push('/') // 登录成功 跳转到home页
           }).catch(() => {
             this.$message({
               message: '手机号或验证码错误',
