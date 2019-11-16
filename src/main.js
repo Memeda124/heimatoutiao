@@ -5,6 +5,7 @@ import Element from 'element-ui'
 import './styles/index.less'
 import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
+import 'nprogress/nprogress.css' // 加载 nprogress 中的指定样式文件
 axios.defaults.baseURL = 'http://ttapi.research.itcast.cn/mp/v1_0'
 Vue.prototype.$axios = axios // 将axios共享给所有的实例使用
 Vue.use(Element) // 注册整个的所有的elementUL组件 Vue.use调用了elementUI里面的一个方法 install
